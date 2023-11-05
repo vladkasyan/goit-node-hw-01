@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { nanoid } = require("nanoid");
+const { v4: uuidv4 } = require("uuid");
 
 // contacts.js
 
@@ -39,7 +39,7 @@ const addContact = async (data) => {
   // ...твій код. Повертає об'єкт доданого контакту.
   const contacts = await listContacts();
   const newContact = {
-    id: nanoid(),
+    id: uuidv4(),
     ...data,
   };
   contacts.push(newContact);
